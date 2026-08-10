@@ -3,240 +3,253 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NovaPhone | Premium Mobile Experience</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <title>NovaPhone | Premium Mobile Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --bg: #07111f;
-        --card: #0f172a;
-        --accent: #22d3ee;
-        --accent-2: #8b5cf6;
-        --text: #e2e8f0;
+        --primary: #2563eb;
+        --secondary: #111827;
+        --accent: #f59e0b;
+        --light: #f8fafc;
+        --text: #0f172a;
       }
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #020617, #111827 55%, #1e293b);
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #eef4ff 0%, #f9fbff 100%);
         color: var(--text);
       }
-      .hero {
-        background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.25), transparent 35%),
-          linear-gradient(120deg, rgba(56, 189, 248, 0.15), rgba(139, 92, 246, 0.22));
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 2rem;
+      .navbar-brand {
+        font-weight: 800;
+        color: var(--primary) !important;
       }
-      .card-glow {
-        background: rgba(15, 23, 42, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+      .hero {
+        background: linear-gradient(120deg, #0f172a, #1d4ed8);
+        color: white;
+        border-radius: 1.5rem;
+        padding: 4rem 2rem;
+      }
+      .card {
+        border: 0;
+        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
         border-radius: 1.25rem;
-        box-shadow: 0 18px 40px rgba(2, 8, 23, 0.35);
+      }
+      .btn-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+      }
+      .btn-primary:hover {
+        background: #1d4ed8;
+        border-color: #1d4ed8;
+      }
+      .chip {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 999px;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.85rem;
       }
       .price {
-        color: #5eead4;
+        color: var(--accent);
         font-weight: 700;
       }
-      .navbar-brand {
-        letter-spacing: 0.12rem;
+      .hero-badge {
+        color: #dbeafe;
+        font-size: 0.9rem;
       }
-      .badge-soft {
-        background: rgba(34, 211, 238, 0.15);
-        color: #67e8f9;
-      }
-      .auth-menu-wrapper {
-        position: relative;
-        display: inline-block;
-      }
-      .auth-menu-panel {
-        position: absolute;
-        top: calc(100% + 0.6rem);
-        right: 0;
-        min-width: 240px;
-        padding: 0.9rem;
-        border-radius: 1rem;
-        background: rgba(2, 6, 23, 0.98);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 16px 32px rgba(2, 8, 23, 0.35);
-        display: none;
-        z-index: 1050;
-      }
-      .auth-menu-wrapper:hover .auth-menu-panel,
-      .auth-menu-wrapper:focus-within .auth-menu-panel {
-        display: block;
-      }
-      .auth-profile-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.55rem;
-        padding: 0.55rem 0.85rem;
-        border-radius: 999px;
-        border: 1px solid rgba(34, 211, 238, 0.25);
-        background: rgba(34, 211, 238, 0.15);
-        color: #e2e8f0;
+      .section-title {
+        font-weight: 700;
       }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-phone-fill"></i> NovaPhone</a>
+        <a class="navbar-brand" href="index.html">NovaPhone</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navMenu">
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
             <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+            <li class="nav-item"><a class="nav-link" href="cart.html">Cart <span id="cartCount" class="badge bg-primary">0</span></a></li>
           </ul>
-          <div class="d-flex gap-2 align-items-center">
-            <a class="btn btn-outline-light" href="cart.html">Cart <span class="badge text-bg-light" id="cartCount">0</span></a>
-            <div id="authContainer"></div>
-          </div>
+          <div id="navUser" class="text-muted small"></div>
         </div>
       </div>
     </nav>
 
     <main class="container py-5">
-      <section class="hero p-4 p-lg-5 mb-5">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-7">
-            <span class="badge badge-soft mb-3 px-3 py-2">New Arrival • 2026 Edition</span>
-            <h1 class="display-5 fw-bold mb-3">Smartphones that blend speed, beauty, and everyday convenience.</h1>
-            <p class="lead text-secondary">Browse premium devices, manage your profile, and build your ideal cart in one elegant experience.</p>
-            <div class="d-flex flex-wrap gap-3 mt-4">
-              <a href="#products" class="btn btn-info btn-lg text-dark fw-semibold">Shop Phones</a>
-              <a href="register.html" class="btn btn-outline-light btn-lg">Create Account</a>
+      <section class="hero row align-items-center g-4 mb-5">
+        <div class="col-lg-7">
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="chip">Free shipping</span>
+            <span class="chip">12-month warranty</span>
+            <span class="chip">Secure checkout</span>
+          </div>
+          <h1 class="display-5 fw-bold mb-3">Elevate your everyday with premium phones.</h1>
+          <p class="lead mb-4">Discover the smartest devices, flexible plans, and fast delivery with NovaPhone. Shop bold flagship models designed for creators, gamers, and professionals.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#products" class="btn btn-light btn-lg">Shop now</a>
+            <a href="contact.html" class="btn btn-outline-light btn-lg">Talk to us</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80" alt="Premium smartphone" class="img-fluid rounded-4 shadow" />
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="section-title">Featured phones</h2>
+          <a href="cart.html" class="text-decoration-none text-primary fw-semibold">View cart</a>
+        </div>
+        <div id="products" class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 p-3">
+              <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80" class="card-img-top rounded-3 mb-3" alt="Galaxy S24" />
+              <h5 class="fw-bold">Galaxy S24 Ultra</h5>
+              <p class="text-muted small">AI photography, dynamic AMOLED display, and long-lasting battery.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="price">$1,199</span>
+                <button class="btn btn-primary add-to-cart" data-name="Galaxy S24 Ultra" data-price="1199" data-image="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80">Add to cart</button>
+              </div>
             </div>
           </div>
-          <div class="col-lg-5">
-            <div class="card-glow p-4 text-center">
-              <i class="bi bi-phone-fill display-1 text-info"></i>
-              <h3 class="mt-3">Why shoppers love NovaPhone</h3>
-              <ul class="list-unstyled mt-3">
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Fast delivery</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Secure payments</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Free setup support</li>
-              </ul>
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 p-3">
+              <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80" class="card-img-top rounded-3 mb-3" alt="iPhone 15" />
+              <h5 class="fw-bold">iPhone 15 Pro</h5>
+              <p class="text-muted small">Titanium design, action button, and powerful camera system.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="price">$1,099</span>
+                <button class="btn btn-primary add-to-cart" data-name="iPhone 15 Pro" data-price="1099" data-image="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80">Add to cart</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 p-3">
+              <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?auto=format&fit=crop&w=800&q=80" class="card-img-top rounded-3 mb-3" alt="Pixel 8" />
+              <h5 class="fw-bold">Pixel 8 Pro</h5>
+              <p class="text-muted small">Clean Android experience, smart AI features, and amazing cameras.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="price">$899</span>
+                <button class="btn btn-primary add-to-cart" data-name="Pixel 8 Pro" data-price="899" data-image="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?auto=format&fit=crop&w=800&q=80">Add to cart</button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="products" class="mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <div>
-            <h2 class="h3 mb-1">Featured Phones</h2>
-            <p class="text-secondary mb-0">Curated products tailored for students and professionals.</p>
+      <section class="row g-4 mb-5">
+        <div class="col-lg-4">
+          <div class="card p-4 h-100">
+            <h5 class="fw-bold">Fast delivery</h5>
+            <p class="text-muted">Same-day dispatch across major cities and secure packaging for every order.</p>
           </div>
-          <span class="badge badge-soft px-3 py-2">3 products</span>
         </div>
-        <div class="row g-4" id="productGrid"></div>
+        <div class="col-lg-4">
+          <div class="card p-4 h-100">
+            <h5 class="fw-bold">Easy financing</h5>
+            <p class="text-muted">Flexible installments make it easier to upgrade your mobile experience.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card p-4 h-100">
+            <h5 class="fw-bold">Premium support</h5>
+            <p class="text-muted">Live assistance and online setup guides are available from day one.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card p-4 mb-5">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h3 class="fw-bold">Why customers love NovaPhone</h3>
+            <p class="text-muted mb-0">“The experience felt premium from the first click. The device arrived quickly and the support team was incredibly helpful.”</p>
+          </div>
+          <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+            <a href="register.html" class="btn btn-primary">Create account</a>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer class="text-center py-4 border-top border-secondary">
-      <p class="mb-0 text-secondary">© 2026 NovaPhone. Built for modern online retail experiences.</p>
+    <footer class="bg-dark text-white py-4">
+      <div class="container text-center text-md-start">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>NovaPhone</h5>
+            <p class="text-white-50 mb-0">Modern mobile experiences for students, families, and professionals.</p>
+          </div>
+          <div class="col-md-6 text-md-end mt-3 mt-md-0">
+            <a href="index.html" class="text-white-50 me-3">Home</a>
+            <a href="contact.html" class="text-white-50 me-3">Contact</a>
+            <a href="cart.html" class="text-white-50">Cart</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      const products = [
-        { id: 1, name: "Nova X1", price: 899, image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80", description: "Ultra-slim 5G phone with flagship camera." },
-        { id: 2, name: "Aurora Z5", price: 649, image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80", description: "Balanced performance with long battery life." },
-        { id: 3, name: "Pixel Pro 12", price: 1099, image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80", description: "Photography-focused device with superb display." }
-      ];
-
       function getCart() {
-        return JSON.parse(localStorage.getItem("cart") || "[]");
+        return JSON.parse(localStorage.getItem('novaCart') || '[]');
       }
-
       function saveCart(cart) {
-        localStorage.setItem("cart", JSON.stringify(cart));
+        localStorage.setItem('novaCart', JSON.stringify(cart));
       }
-
-      function renderCartCount() {
-        const count = getCart().reduce((sum, item) => sum + item.quantity, 0);
-        document.getElementById("cartCount").textContent = count;
+      function updateCartBadge() {
+        const count = getCart().length;
+        const badge = document.getElementById('cartCount');
+        if (badge) badge.textContent = count;
       }
-
-      function getCurrentUser() {
-        return JSON.parse(localStorage.getItem("currentUser") || "null");
+      function setUserGreeting() {
+        const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        const box = document.getElementById('navUser');
+        if (box) {
+          box.innerHTML = user ? `Welcome, <strong>${user.fullName}</strong>` : 'New customer? <a href="register.html" class="text-decoration-none text-primary">Join now</a>';
+        }
       }
-
-      function renderAuthMenu() {
-        const container = document.getElementById("authContainer");
-        if (!container) return;
-
-        const currentUser = getCurrentUser();
-        if (currentUser) {
-          container.innerHTML = `
-            <div class="auth-menu-wrapper">
-              <button class="auth-profile-pill btn" type="button">
-                <i class="bi bi-person-circle"></i>
-                <span>${currentUser.fullName.split(" ")[0]}</span>
-              </button>
-              <div class="auth-menu-panel">
-                <div class="fw-semibold">${currentUser.fullName}</div>
-                <div class="small text-secondary mb-2">${currentUser.email}</div>
-                <div class="small text-secondary mb-3">${currentUser.phone || "No phone provided"}</div>
-                <a class="btn btn-sm btn-outline-light w-100 mb-2" href="profile.html">View profile</a>
-                <button class="btn btn-sm btn-danger w-100" id="logoutBtn">Logout</button>
-              </div>
-            </div>
-          `;
-
-          const logoutButton = container.querySelector("#logoutBtn");
-          if (logoutButton) {
-            logoutButton.addEventListener("click", function () {
-              localStorage.removeItem("currentUser");
-              renderAuthMenu();
-            });
+      document.querySelectorAll('.add-to-cart').forEach((button) => {
+        button.addEventListener('click', () => {
+          const cart = getCart();
+          const item = {
+            name: button.dataset.name,
+            price: Number(button.dataset.price),
+            image: button.dataset.image,
+            quantity: 1
+          };
+          const existing = cart.find((entry) => entry.name === item.name);
+          if (existing) {
+            existing.quantity += 1;
+          } else {
+            cart.push(item);
           }
-        } else {
-          container.innerHTML = `
-            <div class="d-flex gap-2">
-              <a class="btn btn-warning" href="login.html">Login</a>
-              <a class="btn btn-outline-light" href="register.html">Create account</a>
-            </div>
-          `;
-        }
-      }
-
-      function renderProducts() {
-        const grid = document.getElementById("productGrid");
-        grid.innerHTML = products.map((product) => `
-          <div class="col-md-6 col-lg-4">
-            <div class="card-glow h-100 p-3">
-              <img src="${product.image}" class="img-fluid rounded mb-3" alt="${product.name}" />
-              <h3 class="h5">${product.name}</h3>
-              <p class="text-secondary small">${product.description}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="price">$${product.price}</span>
-                <button class="btn btn-info text-dark" onclick="addToCart(${product.id})">Add to cart</button>
-              </div>
-            </div>
-          </div>
-        `).join("");
-      }
-
-      function addToCart(productId) {
-        const cart = getCart();
-        const product = products.find((item) => item.id === productId);
-        const existing = cart.find((item) => item.id === productId);
-        if (existing) {
-          existing.quantity += 1;
-        } else {
-          cart.push({ ...product, quantity: 1 });
-        }
-        saveCart(cart);
-        renderCartCount();
-        alert(`${product.name} added to your cart.`);
-      }
-
-      renderProducts();
-      renderCartCount();
-      renderAuthMenu();
+          saveCart(cart);
+          updateCartBadge();
+          button.textContent = 'Added';
+          button.disabled = true;
+          setTimeout(() => {
+            button.textContent = 'Add to cart';
+            button.disabled = false;
+          }, 1200);
+        });
+      });
+      updateCartBadge();
+      setUserGreeting();
     </script>
   </body>
 </html>

@@ -3,83 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - NovaPhone</title>
+    <title>Login | NovaPhone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
     <style>
-      body {
-        min-height: 100vh;
-        background: linear-gradient(135deg, #020617, #111827 45%, #0f172a);
-        color: #e2e8f0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-      .auth-card {
-        border-radius: 1.5rem;
-        background: rgba(15, 23, 42, 0.92);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 18px 40px rgba(2, 8, 23, 0.4);
-      }
-      .form-control {
-        background: rgba(2, 6, 23, 0.8);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-      }
-      .form-control:focus {
-        background: rgba(2, 6, 23, 0.95);
-        color: white;
-        box-shadow: 0 0 0 0.2rem rgba(34, 211, 238, 0.25);
-      }
-      .auth-menu-wrapper {
-        position: relative;
-        display: inline-block;
-      }
-      .auth-menu-panel {
-        position: absolute;
-        top: calc(100% + 0.6rem);
-        right: 0;
-        min-width: 240px;
-        padding: 0.9rem;
-        border-radius: 1rem;
-        background: rgba(2, 6, 23, 0.98);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 16px 32px rgba(2, 8, 23, 0.35);
-        display: none;
-        z-index: 1050;
-      }
-      .auth-menu-wrapper:hover .auth-menu-panel,
-      .auth-menu-wrapper:focus-within .auth-menu-panel {
-        display: block;
-      }
-      .auth-profile-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.55rem;
-        padding: 0.55rem 0.85rem;
-        border-radius: 999px;
-        border: 1px solid rgba(34, 211, 238, 0.25);
-        background: rgba(34, 211, 238, 0.15);
-        color: #e2e8f0;
-      }
+      body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%); }
+      .navbar-brand { font-weight: 800; color: #2563eb !important; }
+      .auth-card { border: 0; border-radius: 1.4rem; box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12); }
+      .form-control:focus { border-color: #2563eb; box-shadow: none; }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-phone-fill"></i> NovaPhone</a>
+        <a class="navbar-brand" href="index.html">NovaPhone</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navMenu">
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
             <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+            <li class="nav-item"><a class="nav-link" href="cart.html">Cart <span id="cartCount" class="badge bg-primary">0</span></a></li>
           </ul>
-          <div class="d-flex gap-2 align-items-center">
-            <a class="btn btn-outline-light" href="cart.html">Cart <span class="badge text-bg-light" id="cartCount">0</span></a>
-            <div id="authContainer"></div>
-          </div>
+          <div id="navUser" class="text-muted small"></div>
         </div>
       </div>
     </nav>
@@ -87,103 +39,94 @@
     <main class="container py-5">
       <div class="row justify-content-center">
         <div class="col-lg-5">
-          <div class="auth-card p-4 p-lg-5">
-            <h1 class="h3 fw-bold text-center mb-3">Welcome back</h1>
-            <p class="text-secondary text-center mb-4">Sign in to continue with your orders and saved profile.</p>
-            <form id="loginForm">
+          <div class="auth-card card p-4 p-lg-5">
+            <h2 class="fw-bold mb-3">Welcome back</h2>
+            <p class="text-muted">Sign in to continue shopping and manage your account.</p>
+            <form id="loginForm" novalidate>
               <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required />
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required />
               </div>
               <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required />
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required />
               </div>
-              <div class="d-grid">
-                <button class="btn btn-info text-dark fw-semibold" type="submit">Login</button>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="rememberMe" />
+                <label class="form-check-label" for="rememberMe">Keep me signed in</label>
               </div>
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+              <div id="loginAlert" class="alert alert-danger mt-3 d-none"></div>
             </form>
-            <div class="alert alert-danger mt-3 d-none" id="loginError"></div>
-            <p class="text-center mt-3 mb-0">New here? <a href="register.html" class="text-info">Create an account</a></p>
+            <p class="text-center mt-3 mb-0">New here? <a href="register.html" class="text-decoration-none text-primary">Create an account</a></p>
           </div>
         </div>
       </div>
     </main>
 
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container text-center text-md-start">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>NovaPhone</h5>
+            <p class="text-white-50 mb-0">Modern mobile experiences for students, families, and professionals.</p>
+          </div>
+          <div class="col-md-6 text-md-end mt-3 mt-md-0">
+            <a href="index.html" class="text-white-50 me-3">Home</a>
+            <a href="contact.html" class="text-white-50 me-3">Contact</a>
+            <a href="cart.html" class="text-white-50">Cart</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       function getCart() {
-        return JSON.parse(localStorage.getItem("cart") || "[]");
+        return JSON.parse(localStorage.getItem('novaCart') || '[]');
       }
-
-      function renderCartCount() {
-        const count = getCart().reduce((sum, item) => sum + item.quantity, 0);
-        document.getElementById("cartCount").textContent = count;
+      function updateCartBadge() {
+        const count = getCart().length;
+        const badge = document.getElementById('cartCount');
+        if (badge) badge.textContent = count;
       }
-
-      function getCurrentUser() {
-        return JSON.parse(localStorage.getItem("currentUser") || "null");
-      }
-
-      function renderAuthMenu() {
-        const container = document.getElementById("authContainer");
-        if (!container) return;
-
-        const currentUser = getCurrentUser();
-        if (currentUser) {
-          container.innerHTML = `
-            <div class="auth-menu-wrapper">
-              <button class="auth-profile-pill btn" type="button">
-                <i class="bi bi-person-circle"></i>
-                <span>${currentUser.fullName.split(" ")[0]}</span>
-              </button>
-              <div class="auth-menu-panel">
-                <div class="fw-semibold">${currentUser.fullName}</div>
-                <div class="small text-secondary mb-2">${currentUser.email}</div>
-                <div class="small text-secondary mb-3">${currentUser.phone || "No phone provided"}</div>
-                <a class="btn btn-sm btn-outline-light w-100 mb-2" href="profile.html">View profile</a>
-                <button class="btn btn-sm btn-danger w-100" id="logoutBtn">Logout</button>
-              </div>
-            </div>
-          `;
-
-          const logoutButton = container.querySelector("#logoutBtn");
-          if (logoutButton) {
-            logoutButton.addEventListener("click", function () {
-              localStorage.removeItem("currentUser");
-              renderAuthMenu();
-            });
-          }
-        } else {
-          container.innerHTML = `
-            <div class="d-flex gap-2">
-              <a class="btn btn-warning" href="login.html">Login</a>
-              <a class="btn btn-outline-light" href="register.html">Create account</a>
-            </div>
-          `;
+      function setUserGreeting() {
+        const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        const box = document.getElementById('navUser');
+        if (box) {
+          box.innerHTML = user ? `Welcome, <strong>${user.fullName}</strong>` : 'Guest access enabled';
         }
       }
-
-      document.getElementById("loginForm").addEventListener("submit", function (event) {
+      document.getElementById('loginForm').addEventListener('submit', function (event) {
         event.preventDefault();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value.trim();
-        const errorBox = document.getElementById("loginError");
-        const users = JSON.parse(localStorage.getItem("users") || "[]");
-        const existingUser = users.find((user) => user.email === email && user.password === password);
-
-        if (!existingUser) {
-          errorBox.classList.remove("d-none");
-          errorBox.textContent = "Invalid email or password. Please try again.";
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const alertBox = document.getElementById('loginAlert');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !password) {
+          alertBox.className = 'alert alert-danger mt-3';
+          alertBox.textContent = 'Please enter both your email and password.';
           return;
         }
-
-        localStorage.setItem("currentUser", JSON.stringify(existingUser));
-        window.location.href = "profile.html";
+        if (!emailPattern.test(email)) {
+          alertBox.className = 'alert alert-danger mt-3';
+          alertBox.textContent = 'Please enter a valid email address.';
+          return;
+        }
+        const users = JSON.parse(localStorage.getItem('users') || '[]');
+        const foundUser = users.find((user) => user.email === email && user.password === password);
+        if (!foundUser) {
+          alertBox.className = 'alert alert-danger mt-3';
+          alertBox.textContent = 'No matching account found. Check your credentials or create a new account.';
+          return;
+        }
+        localStorage.setItem('currentUser', JSON.stringify(foundUser));
+        alertBox.className = 'alert alert-success mt-3';
+        alertBox.textContent = 'Login successful. Redirecting to your profile...';
+        setTimeout(() => window.location.href = 'profile.html', 1000);
       });
-
-      renderCartCount();
-      renderAuthMenu();
+      updateCartBadge();
+      setUserGreeting();
     </script>
   </body>
 </html>
